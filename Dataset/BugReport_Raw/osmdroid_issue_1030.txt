@@ -1,0 +1,40 @@
+Bug Report Title:
+The app stops and forces to exit when opening some features
+
+Bug Report Issue:
+Please note: issues related to or caused by osmbonuspack will be closed with a
+suggestion to open an issue at https://github.com/MKergall/osmbonuspack
+
+(feel free to delete whatever doesn't apply)
+
+## Issue Type
+When I access the "More Samples" feature in the app and open the "Layout" section and click on the "Map in aview pager", the application suddenly refused to  run  and then the app becomes not responding so it asks to exit forcibly. And the same thing happened when I clicked on "Map in recycler / cardview layout".
+[ ] Bug
+
+
+## Description and/or steps/code to reproduce the problem
+Install and open the app
+then click "More Samples" and click on "Layout"
+Next click on the "Map in a view Pager" feature and also "Map in a recycler / cardview Layout"
+Then you will find the error as I experienced.
+
+
+## Environment
+Device: Xiaomi Redmi 4X
+Operating system: Marshmallow, 6.0.1 mmb29m (CPU: Octa-core Max 1.9 GHz, RAM: 2 GB)
+Application Version: 6.0.1
+
+https://youtu.be/00JaNXery5E
+
+Comments:
+Comment#1:
+@tykees Similar to #1033.
+Fixed by PR #1034: could you try it?
+---
+Comment#2:
+fixed in the next release, snapshots updated
+---
+Comment#3:
+Thank you for your quick response, i don't have building tools on my PC and i won't be able to check it but i will check it once version 6.0.2 has officially been released
+
+---

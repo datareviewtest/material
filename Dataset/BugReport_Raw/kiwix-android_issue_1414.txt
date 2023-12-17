@@ -1,0 +1,87 @@
+Bug Report Title:
+App Crash on clicking Read aloud
+
+Bug Report Issue:
+**Describe the bug**
+App crash when clicked on Read aloud from the menu.
+
+**Steps to reproduce the behaviour:**
+1. Install new app
+2. click + icon from sidebar
+3. click Read aloud from menu.
+4. crash
+
+
+**Environment**
+- Version of Kiwix Android : 2.5.3
+- Device : redmi4
+- OS version : Android
+
+
+Comments:
+Comment#1:
+Can I help in fixing the bug?
+---
+Comment#2:
+@XDivergent of course! Would be great! Waiting to your PR. Please check first that the bug still occur with the "develop" branch.
+---
+Comment#3:
+Sir, I need help in building kiwix-android
+
+I am getting this error everytime I try to run `kiwix-build kiwix-android`
+```
+The target platform android cannot be build on host Darwin.
+Select another target platform or change your host system.
+```
+
+---
+Comment#4:
+@XDivergent Have you read the `README.md` and `CONTRIBUTING.md` properly?
+---
+Comment#5:
+@XDivergent could you please explain further how to reproduce this problem?  I have followed the steps on emulated Nexus API 28 and the reader succeeds.
+---
+Comment#6:
+@jhbiggs I installed the app from playstore. 
+---
+Comment#7:
+@XDivergent Can you build the app from the develop branch and check if the bug is present?
+---
+Comment#8:
+I am building the app but every time I am getting a web view app. Not the app available on play store.
+---
+Comment#9:
+Have you changed the build variant to `kiwixDebug`?
+Also, the app on the play store is the older version. We have added many new features which are yet to be released.
+---
+Comment#10:
+> Have you changed the build variant to `kiwixDebug`?
+> Also, the app on the play store is the older version. We have added many new features which are yet to be released.
+
+Yes I am using kiwixDebug variant
+---
+Comment#11:
+@abdulwd Got it. my mistake, I misunderstood the new app as a web app. It looks like a browser but it is not😭. I did not find the option read aloud in this version.
+---
+Comment#12:
+Open a file then it will be there.
+---
+Comment#13:
+Have you downloaded any ZIM file?
+---
+Comment#14:
+
+
+
+> Have you downloaded any ZIM file?
+
+Not showing any file for download in the online tab.
+
+---
+Comment#15:
+There must be a loading icon, the files are dynamically fetched so it takes some time. You have to wait after opening the online tab and don't close it.
+---
+Comment#16:
+Read Aloud is not present when no Zim File has been selected. Issue likely fixed in 3.0 some time ago.
+Thank you for your report @XDivergent , closing
+---

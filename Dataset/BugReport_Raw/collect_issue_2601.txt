@@ -1,0 +1,47 @@
+Bug Report Title:
+App crashes if a user tries to share a QR code with settings (targetSdkVersion >=24)
+
+Bug Report Issue:
+#### Problem description
+App crashes if a user tries to share a QR code with settings (targetSdkVersion >=24)
+
+```
+    android.os.FileUriExposedException: file:///storage/emulated/0/odk/settings/collect-settings.png exposed beyond app through ClipData.Item.getUri()
+        at android.os.StrictMode.onFileUriExposed(StrictMode.java:1960)
+        at android.net.Uri.checkFileUriExposed(Uri.java:2348)
+        at android.content.ClipData.prepareToLeaveProcess(ClipData.java:942)
+        at android.content.Intent.prepareToLeaveProcess(Intent.java:9850)
+        at android.content.Intent.prepareToLeaveProcess(Intent.java:9856)
+        at android.content.Intent.prepareToLeaveProcess(Intent.java:9835)
+        at android.app.Instrumentation.execStartActivity(Instrumentation.java:1743)
+        at android.app.Activity.startActivityForResult(Activity.java:5168)
+        at android.app.Activity.startActivityFromFragment(Activity.java:5144)
+        at android.app.Activity$HostCallbacks.onStartActivityFromFragment(Activity.java:7680)
+        at android.app.Fragment.startActivity(Fragment.java:1075)
+        at android.app.Fragment.startActivity(Fragment.java:1054)
+        at org.odk.collect.android.fragments.ShowQRCodeFragment.onOptionsItemSelected(ShowQRCodeFragment.java:282)
+        at android.app.Fragment.performOptionsItemSelected(Fragment.java:2655)
+        at android.app.FragmentManagerImpl.dispatchOptionsItemSelected(FragmentManager.java:3164)
+        at android.app.FragmentController.dispatchOptionsItemSelected(FragmentController.java:367)
+        at android.app.Activity.onMenuItemSelected(Activity.java:3453)
+        at android.support.v4.app.FragmentActivity.onMenuItemSelected(FragmentActivity.java:407)
+        at android.support.v7.app.AppCompatActivity.onMenuItemSelected(AppCompatActivity.java:195)
+        at android.support.v7.view.WindowCallbackWrapper.onMenuItemSelected(WindowCallbackWrapper.java:108)
+        at android.support.v7.view.WindowCallbackWrapper.onMenuItemSelected(WindowCallbackWrapper.java:108)
+        at android.support.v7.app.ToolbarActionBar$2.onMenuItemClick(ToolbarActionBar.java:63)
+        at android.support.v7.widget.Toolbar$1.onMenuItemClick(Toolbar.java:203)
+        at android.support.v7.widget.ActionMenuView$MenuBuilderCallback.onMenuItemSelected(ActionMenuView.java:780)
+        at android.support.v7.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:822)
+        at android.support.v7.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:171)
+        at android.support.v7.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:973)
+        at android.support.v7.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:963)
+        at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:624)
+        at android.support.v7.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:150)
+
+```
+#### Steps to reproduce the problem
+1. Go to `Admin Settings` -> `Import/Export settings`
+2. Click on the `share` icon.
+
+
+Comments:

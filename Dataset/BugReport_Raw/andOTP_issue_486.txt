@@ -1,0 +1,36 @@
+Bug Report Title:
+Onboarding issues: Third "Let's get started" slide show the wrong encryption method
+
+Bug Report Issue:
+#### General information
+
+* **App version:** 0.6.3.1-play
+* **App source:** Google Play
+* **Android Version:** 8.0.0
+* **Custom ROM:** Samsung
+
+#### Expected result
+
+The first slide says "read carefully", so I did. I left the second slide unchanged (the dropdown defaulted to "Password / PIN"). On the third slide the text said
+
+> Since you have chosen **Android KeyStore** as encryption method this is optional.
+
+which got me confused. The dropdown on the third slide has "None" and "Device credentials" greyed out, so I guess the text is just a UI bug. I went back to the second slide and double checked, it still says "Password / PIN". Selecting "Android KeyStore" and then back to "Password / PIN" updates the text on the third slide.
+
+However, here's a second issue: if I explicitly select "Android KeyStore" then the third slide still has a red text saying "Please set a password to continue". Which is odd, because the text at the top says "Since you have chosen **Android KeyStore** as encryption method _this is optional._". But the red text indicates it is not optional. I think this is just a UX bug and an unfortunate coincidence that "Password" is still the default even though "Android KeyStore" was selected. Maybe it should default to "None" to align with what the text says?
+
+#### Steps to reproduce
+
+Read carefully what the onboarding screens say. I still haven't finished the onboarding and can reproduce the behavior every single time I open the app and restart the process.
+
+Comments:
+Comment#1:
+Just another thought on UX: the red label "Please set a ___ to continue!" should only appear after you try going to the fourth slide without proving the required input. The red text indicates the user did something wrong, which they haven't, as they just opened the third slide.
+---
+Comment#2:
+The first issue has already been reported in #301 and is fixed in the latest beta release (which will probably become stable in about a week).
+I will have to look into the issue with the wrong selections and the red text before that release so I will leave this open to track it.
+---
+Comment#3:
+Thanks you the quick reply! I swear I've searched for "Since you have chosen" and didn't find #301. But I might have been in the wrong repo or misspelled something.
+---

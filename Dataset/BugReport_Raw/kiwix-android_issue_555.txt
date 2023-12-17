@@ -1,0 +1,118 @@
+Bug Report Title:
+Bottom Toolbar hide text in Help screen
+
+Bug Report Issue:
+**Is it a ?**
+ Bug Report
+
+## Bug Report
+
+### Step 1: Are you ready to report?
+   - Yes
+
+### Step 2: What is your environment?
+  * version of the software you use : Android Studio 3.0.1
+  * device / operating system : Micromax/5.0
+  
+### Step 3: Describe the problem:
+When bottom toolbar is enabled then on help screen the bottom most text is not visible
+as Bottom toolbar is on it.
+
+
+  * What do you obtain? A copy of the error message or a screenshot is always useful.
+Screenshot 
+
+![bug_screenshot](https://user-images.githubusercontent.com/23710417/36914923-e80eae4c-1e74-11e8-8dc7-e318331f7a39.jpg)
+
+#### Steps to reproduce:
+
+  1. From settings enable bottom toolbar
+  2. Then go to help and scroll to bottom
+
+  
+  * What should be the behaviour from your point of view? How do you expect the service to work?
+The text should be visible to user.
+
+I would like to work on it :)
+
+Comments:
+Comment#1:
+@jb1998 I saw two option related to this in settings, first to enable the toolbar and the second is to make it visible/ or not while scrolling so i think that solves the issue.
+---
+Comment#2:
+@GeVic That option is also not working.
+The above screenshot in the issue has option "Keep Toolbar Visible" off and by it last 5-6 lines are not visible.
+By turning this option on last 2 lines are not visible. So problem is still there.
+Below is screenshot when "Keep Toolbar Visible" option is turned on 
+<img src="https://user-images.githubusercontent.com/23710417/36931761-ca66030e-1ee2-11e8-97fc-676af0decb1c.jpg" height="500" width="300" align="left">
+
+ 
+---
+Comment#3:
+@jb1998 Please go head and fix this.
+---
+Comment#4:
+@jb1998 @brijeshshah13 It's working for me. I made it run on emulator too. It stills shows no problem to me.
+
+---
+Comment#5:
+@GeVic Can you please attach a screenshot?
+---
+Comment#6:
+@brijeshshah13 yeah sure, here you go
+
+![issue](https://user-images.githubusercontent.com/29516629/36937342-c458a174-1f37-11e8-8328-df05ce9ebc43.gif)
+
+---
+Comment#7:
+@GeVic As you can notice from the previous comments, the issue is concerned with the Help screen and not with the content screen.
+---
+Comment#8:
+@brijeshshah13 Are you talking about the kiwix app (on play store) because when i ran this on studio, there is no help button there.
+
+---
+Comment#9:
+@GeVic Nope, I'm too building it from the studio. It is in the menu options. Please make sure you are using the `kiwixDebug` build variant.
+---
+Comment#10:
+@brijeshshah13 @mhutti1 
+According to me we can have 2 things-
+1) When "Keep Toolbar Visible" is enabled then both bottom and top toolbar are fixed on screen. So we can make the top toolbar fixed on screen when "Keep Toolbar Visible" is enabled and bottom toolbar hides on scrolling.
+2) If we want both bottom and top toolbar fixed on screen when "Keep Toolbar Visible" is enabled then we can leave the bottom space equal to bottom toolbar space when "Keep Toolbar Visible" is enabled or we can make background of bottom toolbar transparent.
+Please let me know which one is more intuitive?? 
+---
+Comment#11:
+@jb1998 I think the first one will be a more cleaner and better approach. @mhutti1 What are your views?
+---
+Comment#12:
+I don't really mind. Implement a solution that is both easy to understand and efficient while keeping the current features. 
+---
+Comment#13:
+Update : I am putting space in bottom dynamically.This is kind of straight solution to the problem.
+The user has enabled "Keep Toolbar Visible" for easy usage of options so it is kept fixed until user disable this option.
+So now bottom toolbar may be enabled or disabled but bottom text is now visible.
+
+The solution is simple,this issue was with help screen so whenever help screen is called I am programmatically putting space below and when we leave the help screen then bottom space is removed.
+
+Below is gif showing this : 
+<img src="https://user-images.githubusercontent.com/23710417/37127391-86bcd198-229b-11e8-953c-83c05cec918c.gif" height="500" width="300">
+
+I am facing a small problem : The space comes up at bottom after checking if bottom toolbar is enabled and we are in help screen.
+Initially when app starts then space is not added although I have written code for it in Oncreate.It is added on pressing help option only.
+Just debugging that part,rest looks fine :)
+---
+Comment#14:
+I fixed this issue in pull request :  #604
+
+But due to changes in master branch of kiwix-android in last few days after merging conflicts the Travis CI test was done but the screen in my device have some empty space on the top.
+I am looking out what is causing that because my code is straight forward of dynamically adding bottom space and removing it when bottom toolbar is enabled and disabled.
+If anyone see anything please do let me know :)
+
+<img src="https://user-images.githubusercontent.com/23710417/37255187-ca1c2ec2-256e-11e8-98e0-f7506e82e232.jpg" height="500" width="300" >
+
+
+
+---
+Comment#15:
+Made redundant by #803.
+---

@@ -1,0 +1,70 @@
+Bug Report Title:
+Long press on a task does not show the task menu.
+
+Bug Report Issue:
+**Describe the bug**
+I wanted to edit the times on my current task. Usually I long press and get a meny where I can select "show times" and from there on select "edit times".
+However, long-press now results in a pop-up called "activities menu" that is empty,
+Currently I can't find another way to edit the times.
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Create a task.
+2. Start the timer on the task.
+3. Long-press the task.
+
+**Expected behavior**
+The menu that allows changing task details should appear.
+
+**Actual behavior**
+Empty meny shown called "activities menu".
+
+**Screenshots**
+-
+
+**Smartphone (please complete the following information):**
+Huawei P10
+Android 8.0.0
+A Time Tracker version: 0.51.1
+
+**Additional context**
+Add any other context about the problem here.
+
+
+Comments:
+Comment#1:
+Xiaomi A2, Android One Pie → same behaviour, Version 0.51.1
+---
+Comment#2:
+Same here, that happens only for entries on top of the list, the menu is actually scrollable (but nevertheless not quite usable), for entries further down the list (seems as soon as the menu height offset is reached) the entire menu is shown.
+
+---
+Comment#3:
+erAck: thanks for the info. I didn't realize the menu is scrollable. Good workaround for the time being 🙂
+---
+Comment#4:
+Seems to be an issue with Android 7 and later for unknown reasons.
+On Android 7 only some of the entries are shown in the menu, but it is scrollable so the other can be accessed.
+On Android 6 it works as before.
+---
+Comment#5:
+Could be this issue:
+https://stackoverflow.com/questions/40867621/contextmenu-position-is-messed-up-in-android-7
+https://stackoverflow.com/questions/48012538/context-menu-in-android-7-0
+https://www.mysysadmintips.com/other/programming/758-listview-pop-up-context-menu-broken-in-android-7-api-24
+---
+Comment#6:
+Version 0.51.2 with this fix should soon be available in the Google Play beta channel:
+https://play.google.com/apps/testing/com.markuspage.android.atimetracker
+
+If possible let me know if this fixes the issue.
+---
+Comment#7:
+It fixed the issue for me. Thanks. 
+---
+Comment#8:
+Hi @netmackan , I guess you are waiting for confirmation that it worked before you officially release it ? #125
+---
+Comment#9:
+Yes. Thanks.
+---

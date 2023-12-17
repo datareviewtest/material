@@ -1,0 +1,126 @@
+Bug Report Title:
+Sometimes 'Go to...' or 'Outline' doesn't work
+
+Bug Report Issue:
+It's a weird issue. Usually when I press 'Go to...' and type a number and press 'Go', it simply refreshes at the original page, not the page I inputted. I need to do twice or so to switch to a new page. The problem of 'Outline' is similar. When I choose a page in 'Outline', it stops at the original page. I need to do this many times to switch a page.
+
+Android 4.1.2 (my Samsung phone) & Android 4.1.1 (my Samsung tab)
+Document Viewer 2.5, installed from F-Droid.
+
+
+Comments:
+Comment#1:
+Observed with the same symptoms. Doubt this app is maintained, though. 
+
+---
+Comment#2:
+True....this is long problem.
+They are work ...but you must select go gage or outline twice....
+Ex: go 23 go 23.....
+
+---
+Comment#3:
+Confirmed. Seems like the "goto" feature is broken.
+
+---
+Comment#4:
+Will be fixed, once mupdf is updated to the latest version. Use issue #51 to track the progress of the mupdf-update.
+
+---
+Comment#5:
+Just noticed, that this is still an issue. But it doesn't seem to be permanent?!
+
+---
+Comment#6:
+I found that in the latest version, it sometimes went to the wrong page
+when clicking outline, but it's a minor bug since the offset is always
+plus/minus 1.
+
+On Mon, Feb 16, 2015 at 9:18 AM, tuxor1337 notifications@github.com wrote:
+
+> Closed #48 https://github.com/dschuermann/document-viewer/issues/48 via
+> 542ed8e
+> https://github.com/dschuermann/document-viewer/commit/542ed8ec2c0670256284d01fa4433f69a10237da
+> .
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/dschuermann/document-viewer/issues/48#event-236073198
+> .
+
+---
+Comment#7:
+@FrankEular I'm using this app on a daily basis and haven't had any such issues for a long time now. Can you explain how to reproduce this step by step?
+
+---
+Comment#8:
+Simply go through the outline and choose Chapter 1.
+Maybe the problem is that the page of the chapter is DIFFERENT from
+that of the first section of that chapter, just like:
+
+Outline:
+
+Chapter 1 <- page 8
+1.1 xxx <- page 9
+
+Click Chapter 1 then Document Viewer goes to page 9.
+
+Sorry, the pdf file is too large to upload! Maybe I've pointed out the issue.
+
+On 6/22/15, eular frank eular.frank@gmail.com wrote:
+
+> On 5/17/15, tuxor1337 notifications@github.com wrote:
+> 
+> > @FrankEular I'm using this app on a daily basis and haven't had any such
+> > issues for a long time now. Can you explain how to reproduce this step by
+> > step?
+> > 
+> > ---
+> > 
+> > Reply to this email directly or view it on GitHub:
+> > https://github.com/sufficientlysecure/document-viewer/issues/48#issuecomment-102804772
+> 
+> Simply go through the outline and choose Chapter 1.
+> Maybe the problem is that the page of the chapter is DIFFERENT from
+> that of the first section of that chapter.
+
+---
+Comment#9:
+As long as there's only a single pdf that has this issue, I would suspect that the error lies in the pdf instead of this app. Have you compared with the behaviour of another pdf viewer? I won't reopen, as long as I'm not able to reproduce this.
+
+---
+Comment#10:
+I opened it on my laptop with evince under linux, there was no problem.
+
+The pdf file could be downloaded here:
+http://gen.lib.rus.ec/book/index.php?md5=D9D636FAC19541905640F56164C8DA8A
+
+Check "Chapter 1" in outline, say.
+
+CAUTION: It's a pirate, therefore should be used with restriction.
+
+On 6/22/15, tuxor1337 notifications@github.com wrote:
+
+> As long as there's only a single pdf that has this issue, I would suspect
+> that the error lies in the pdf instead of this app. Have you compared with
+> the behaviour of another pdf viewer? I won't reopen, as long as I'm not able
+> to reproduce this.
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/sufficientlysecure/document-viewer/issues/48#issuecomment-113927069
+
+---
+Comment#11:
+That is indeed document specific. But it doesn't seem to be due to mupdf, since other pdf viewers that use mupdf don't suffer from this (tested with zathura). The targetRect of the link in the outlines is altered somewhere, because MuPdf gives the right offsets, but in the end the offsetY is wrong.
+
+---
+Comment#12:
+The question is: what exactly is happening in `normalizeLinkTargetRect` what is the meaning of the flag `0x0F` in line 61 of `MuPdfDocument.java`? Why is this flag set in the outline of the above pdf, but not in other pdfs with similar outline?
+
+---
+Comment#13:
+The flags are all in mupdf's `include/mupdf/fitz/link.h` and apparently, with `0x0F` we check for `fz_link_flag_t_valid`, `fz_link_flag_l_valid`, `fz_link_flag_r_valid`, `fz_link_flag_b_valid` even though we only handle the `t` and `l` values. Solution: Only check for `0x03`. I think we can stick to ignoring the `b` and `r` parts because other pdf viewers do the same and noone seems to complain about that...
+
+---

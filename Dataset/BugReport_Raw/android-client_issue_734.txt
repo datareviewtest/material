@@ -1,0 +1,93 @@
+Bug Report Title:
+App crashing on android N
+
+Bug Report Issue:
+**Summary:** 
+
+App is crashing if we want to change photo of client
+
+**Steps to reproduce:** 
+
+Go to client detail activity. Click on take new photo.
+
+**Expected behavior:** 
+
+App should not have crashed.
+
+**Observed behavior:** 
+
+App is crashing.
+
+**Device and Android version:** 
+
+Moto G4 Android 7.0
+
+**Screenshots:** 
+
+![crash](https://user-images.githubusercontent.com/11210887/28835079-de666e68-7701-11e7-9e6b-1e7df283b2c2.gif)
+
+**Crash log:**
+
+<img width="1185" alt="screen shot 2017-08-01 at 22 18 49" src="https://user-images.githubusercontent.com/11210887/28836698-abd2ada8-7707-11e7-98b8-6ecd52358951.png">
+
+
+
+Comments:
+Comment#1:
+Mayank, Please add Crash log in comment
+
+
+
+
+On Tue, Aug 1, 2017 at 9:39 PM, MAYANK JINDAL <notifications@github.com>
+wrote:
+
+> *Summary:*
+>
+> App is crashing if we want to change photo of client
+>
+> *Steps to reproduce:*
+>
+> Go to client detail activity. Click on take new photo.
+>
+> *Expected behavior:*
+>
+> App should not have crashed.
+>
+> *Observed behavior:*
+>
+> App is crashing.
+>
+> *Device and Android version:*
+>
+> Moto G4 Android 7.0
+>
+> *Screenshots:*
+>
+> [image: crash]
+> <https://user-images.githubusercontent.com/11210887/28835079-de666e68-7701-11e7-9e6b-1e7df283b2c2.gif>
+>
+> —
+> You are receiving this because you are subscribed to this thread.
+> Reply to this email directly, view it on GitHub
+> <https://github.com/openMF/android-client/issues/734>, or mute the thread
+> <https://github.com/notifications/unsubscribe-auth/AFdZQmUfiU-KULXVAeSlTLTquF4TVOsgks5sT020gaJpZM4Op9LG>
+> .
+>
+
+
+
+-- 
+*Thanks*
+*Namaste*
+
+Rajan Maurya
+Contact Number : +91 9015090523
+Github: https://github.com/therajanmaurya
+College: Cluster Innovation Centre, University of Delhi
+Student : B.Tech. (Information Technology & Mathematical Innovations)
+
+---
+Comment#2:
+@therajanmaurya added.
+---

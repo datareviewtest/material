@@ -1,0 +1,36 @@
+Bug Report Title:
+Favorite contacts
+
+Bug Report Issue:
+### DESCRIPTION
+
+Impossible to disable favorite contacts on Samsung Galaxy A5 2016
+Impossible to enable favorite contacts on Samsung Galaxy S5 NEO
+Android 6.0.1 / QKSMS 2.7.1
+### STEPS
+1. Go to settings
+2. Go to general settings
+3. Switch favorite contacts
+4. Go to the main screen
+5. Click "+" to compose
+### EXPECTED
+
+It should be possible to popup or not the list of favorite contacts.
+### OBSERVATIONS
+
+No change in the composition screen after switch favorite contacts option.
+
+
+Comments:
+Comment#1:
+Please restart your phone and check if setting is taken into account after ?
+
+---
+Comment#2:
+I tried, there was no change after reboot.
+The option is now active in the general preferences, there is still no favorite contacts in the composition screen.
+
+---
+Comment#3:
+This has been removed in QKSMS 3.0
+---

@@ -2,13 +2,19 @@
 
 This repository hosts the demonstration of our bug reproduction tool. 
 
+## Source Code
+The source code for the tool is located in the 'automation' folder. The 'reproduction.py' is the main file you should execute, while all the other files serve as helper files.
+
 ## Dataset
 Our dataset is structured into various folders that contain a wealth of information. 
+
 All bug reports and corresponding APK replication files follow the same naming convention for easy identification and reference. 
 For example: **name-id.apk, name-id.txt, name-issues-id.apk**
 
+Note that Bug report links are placed in several .txt files, such as 'source.txt,' where the name of the file is the source, like 'AnndroR2.txt', 'saner2022.txt', etc.
+
 ## For your convenience, the following table presents a comparison with baselines regarding effectiveness
-## **Comparison with Baselines (73 Crash Bug Report)**
+## **Comparison with Baselines (73 Crash Bug Reports)** && Non-Crash Bug Reports
 | Bug Report        | ReCDroid | RepRobot | AdbGPT | ReBL |
 |------------------|------|------|------|------|
 | ActivityDiary#285|  ❌   | ❌ | ✅     | ✅   |

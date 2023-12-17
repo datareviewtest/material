@@ -1,0 +1,168 @@
+Bug Report Title:
+After recent update, email doesn't download or delete
+
+Bug Report Issue:
+### Expected behavior
+Example: emptying the trash should empty the trash
+
+### Actual behavior
+Nothing happens, sometimes the app crashes
+
+### Steps to reproduce
+1. Click on folder icon next to account
+2. Expand menu
+3. Click empty trash
+
+### Environment
+K-9 Mail version:
+5.201
+Android version:
+6.0.1
+Account type (IMAP, POP3, WebDAV/Exchange):
+Pop3
+
+Comments:
+Comment#1:
+Please provide a debug log: https://github.com/k9mail/k-9/wiki/LoggingErrors
+---
+Comment#2:
+I had a very similar problem, which came in today with the new update. It was quite vexing, where my email would not update from the imap server. It suddenly stopped updating, this morning, where K9 had been working wonderfully, for years!
+
+Interestingly, the fix was easy, even though it took a long time for me to figure out. 
+
+On the settings for my incoming imap server, I changed the port to 143 (from 993) and changed the connection security method to STARTTLS (instead of SSL/TLS).
+
+It probably should never have been working, with the old settings, and was probably working due to some sort of autocorrection or bug, or some sort of leftover issue. 
+
+Any ideas why it used to work, with the "wrong" settings?  It's working fine for me,now!
+
+These are the settings my other mailer uses, on my computer, which I had to change some number of months (or years?) ago. 
+
+Hope this helps someone else now! It took me a long time today, to figure it out!
+
+---
+Comment#3:
+Same here, after update I cannot download IMAP messages any more. When I look at the folder list I can see an error message: SSLProtocolException: SSL h... (message is cut off but I assume it refers to SSL handshake). The log file on the server reads: Unable to negotiate SSL connection.
+AlBarrCMS's work-around does not work for me (SSL/TLS -> STARTTLS).
+
+---
+Comment#4:
+These issues sound nothing like the original issue.
+
+@AlBarrCMS: It's possible your IMAP server uses different TLS configurations for port 143 and 993. K-9 Mail 5.2xx no longer support SSLv3 and hence can't connect to servers that only support SSLv3.
+
+@jimmy42: Your IMAP server probably only support SSLv3 (no matter which port/mechanism you use). Time to update the server or switch to an email provider who cares about the security of their users.
+---
+Comment#5:
+@cketti Thanks for your quick response. The problem just started with the most recent release (5.201) and not with 5.200 where SSLv3 was removed. I do not know if 5.200 was installed before the update, maybe my phone skipped the 5.200 update and that's why I did not experience any problems.
+I will double-check that the server supports TLS1.2 and not only SSLv3 and update this issue later with my findings.
+---
+Comment#6:
+For me, I pull down to download, the Loading icon appears and spins for a long time, then doesn't download anything.  Sending is fine.
+
+I have an email address with Verizon; I've checked to make sure that the settings are correct (server is pop.verizon.net, port 995).
+
+This has only been happening since the update on 1/1.
+
+(In case it's helpful, I'm running it on a Samsung Galaxy S6 Edge, Android version 6.0.1.)
+---
+Comment#7:
+Probably a completely separate issue @sethchristenfeld but without logs we can't really help much.
+---
+Comment#8:
+Thanks, @philipwhiuk.  I'll look into that later tonight.
+---
+Comment#9:
+This wasn't my situation, but I saw on another thread that some users got mail from google where the users were K-9 mail using port 993 and SSL/TLS like I was. 
+
+With the newest version of K-9, 5.201, their imap mail had stopped updating, with similar behavior to what we are seeing, with no new mail showing up. 
+
+They had to change their security settings of their gmail account, and allow the access of less secure apps. We don't know if k9 itself is a less secure app in the sense of google since the last K-9 update or if google has changed or enabled some new security settings, or if it was the port number and the SSL/TLS setting itself. 
+
+You might be able to shed more light on this, as to why a different security setting was suddenly required for them. 
+
+I'm simply posting this information here in case it helps others, since the high-level behavior was similar -- the new mail could not be retrieved from the imap server through K-9 5.201. For me, no mail would show up, until I changed the port and the TLS configurations.  (Many thanks for the information on what was going on, with SSLv3!)
+
+Google may send people a note, eventually, but the above information on changing security settings might save some people some time, on what to look for and to try to track down, if they're using gmail and imap, with the 5.201 version of K-9. 
+---
+Comment#10:
+The less secure stuff is about password handling - see #1295 I'm not sure at all why it should be affecting ports and SSL/TLS
+---
+Comment#11:
+I have the same issue but over IMAP, getting SSLHandshakeException and started to get it after updating to Android 7.0 on OnePlus 3, it works using the Gmail client so seems to be related to the k9 client. The cert is also a ECDSA certificate from Let's Encrypt.
+
+    01-27 10:34:22.758 23033-23050/? E/k9: Failed to login, closing connection for conn112983937
+    01-27 10:34:22.760 23033-23050/? E/k9: IOException for xxx@example.com:INBOX/MessagingController/conn112983937
+                                           javax.net.ssl.SSLHandshakeException: Handshake failed
+                                               at com.android.org.conscrypt.OpenSSLSocketImpl.startHandshake(OpenSSLSocketImpl.java:429)
+                                               at com.android.org.conscrypt.OpenSSLSocketImpl.waitForHandshake(OpenSSLSocketImpl.java:682)
+                                               at com.android.org.conscrypt.OpenSSLSocketImpl.getInputStream(OpenSSLSocketImpl.java:644)
+                                               at com.fsck.k9.mail.store.imap.ImapConnection.setUpStreamsAndParserFromSocket(ImapConnection.java:228)
+                                               at com.fsck.k9.mail.store.imap.ImapConnection.open(ImapConnection.java:114)
+                                               at com.fsck.k9.mail.store.imap.ImapConnection.sendCommand(ImapConnection.java:640)
+                                               at com.fsck.k9.mail.store.imap.ImapConnection.executeSimpleCommand(ImapConnection.java:623)
+                                               at com.fsck.k9.mail.store.imap.ImapConnection.executeSimpleCommand(ImapConnection.java:612)
+                                               at com.fsck.k9.mail.store.imap.ImapFolder.executeSimpleCommand(ImapFolder.java:109)
+                                               at com.fsck.k9.mail.store.imap.ImapFolder.internalOpen(ImapFolder.java:145)
+                                               at com.fsck.k9.mail.store.imap.ImapFolder.open(ImapFolder.java:114)
+                                               at com.fsck.k9.controller.MessagingController.synchronizeMailboxSynchronous(MessagingController.java:845)
+                                               at com.fsck.k9.controller.MessagingController$9.run(MessagingController.java:739)
+                                               at com.fsck.k9.controller.MessagingController.runInBackground(MessagingController.java:204)
+                                               at com.fsck.k9.controller.MessagingController.access$000(MessagingController.java:115)
+                                               at com.fsck.k9.controller.MessagingController$1.run(MessagingController.java:173)
+                                               at java.lang.Thread.run(Thread.java:761)
+                                            Caused by: javax.net.ssl.SSLProtocolException: SSL handshake terminated: ssl=0x7f32ac49c0: Failure in SSL library, usually a protocol error
+                                           error:10000410:SSL routines:OPENSSL_internal:SSLV3_ALERT_HANDSHAKE_FAILURE (external/boringssl/src/ssl/s3_pkt.c:610 0x7f30ff7f80:0x00000001)
+                                           error:1000009a:SSL routines:OPENSSL_internal:HANDSHAKE_FAILURE_ON_CLIENT_HELLO (external/boringssl/src/ssl/s3_clnt.c:764 0x7f6acbdf76:0x00000000)
+                                               at com.android.org.conscrypt.NativeCrypto.SSL_do_handshake(Native Method)
+                                               at com.android.org.conscrypt.OpenSSLSocketImpl.startHandshake(OpenSSLSocketImpl.java:357)
+                                               	... 16 more
+    01-27 10:34:22.763 23033-23050/? E/k9: synchronizeMailbox
+                                           com.fsck.k9.mail.MessagingException: IO Error
+                                               at com.fsck.k9.mail.store.imap.ImapFolder.ioExceptionHandler(ImapFolder.java:1366)
+                                               at com.fsck.k9.mail.store.imap.ImapFolder.internalOpen(ImapFolder.java:163)
+                                               at com.fsck.k9.mail.store.imap.ImapFolder.open(ImapFolder.java:114)
+                                               at com.fsck.k9.controller.MessagingController.synchronizeMailboxSynchronous(MessagingController.java:845)
+                                               at com.fsck.k9.controller.MessagingController$9.run(MessagingController.java:739)
+                                               at com.fsck.k9.controller.MessagingController.runInBackground(MessagingController.java:204)
+                                               at com.fsck.k9.controller.MessagingController.access$000(MessagingController.java:115)
+                                               at com.fsck.k9.controller.MessagingController$1.run(MessagingController.java:173)
+                                               at java.lang.Thread.run(Thread.java:761)
+                                            Caused by: javax.net.ssl.SSLHandshakeException: Handshake failed
+                                               at com.android.org.conscrypt.OpenSSLSocketImpl.startHandshake(OpenSSLSocketImpl.java:429)
+                                               at com.android.org.conscrypt.OpenSSLSocketImpl.waitForHandshake(OpenSSLSocketImpl.java:682)
+                                               at com.android.org.conscrypt.OpenSSLSocketImpl.getInputStream(OpenSSLSocketImpl.java:644)
+                                               at com.fsck.k9.mail.store.imap.ImapConnection.setUpStreamsAndParserFromSocket(ImapConnection.java:228)
+                                               at com.fsck.k9.mail.store.imap.ImapConnection.open(ImapConnection.java:114)
+                                               at com.fsck.k9.mail.store.imap.ImapConnection.sendCommand(ImapConnection.java:640)
+                                               at com.fsck.k9.mail.store.imap.ImapConnection.executeSimpleCommand(ImapConnection.java:623)
+                                               at com.fsck.k9.mail.store.imap.ImapConnection.executeSimpleCommand(ImapConnection.java:612)
+                                               at com.fsck.k9.mail.store.imap.ImapFolder.executeSimpleCommand(ImapFolder.java:109)
+                                               at com.fsck.k9.mail.store.imap.ImapFolder.internalOpen(ImapFolder.java:145)
+                                               at com.fsck.k9.mail.store.imap.ImapFolder.open(ImapFolder.java:114) 
+                                               at com.fsck.k9.controller.MessagingController.synchronizeMailboxSynchronous(MessagingController.java:845) 
+                                               at com.fsck.k9.controller.MessagingController$9.run(MessagingController.java:739) 
+                                               at com.fsck.k9.controller.MessagingController.runInBackground(MessagingController.java:204) 
+                                               at com.fsck.k9.controller.MessagingController.access$000(MessagingController.java:115) 
+                                               at com.fsck.k9.controller.MessagingController$1.run(MessagingController.java:173) 
+                                               at java.lang.Thread.run(Thread.java:761) 
+                                            Caused by: javax.net.ssl.SSLProtocolException: SSL handshake terminated: ssl=0x7f32ac49c0: Failure in SSL library, usually a protocol error
+                                           error:10000410:SSL routines:OPENSSL_internal:SSLV3_ALERT_HANDSHAKE_FAILURE (external/boringssl/src/ssl/s3_pkt.c:610 0x7f30ff7f80:0x00000001)
+                                           error:1000009a:SSL routines:OPENSSL_internal:HANDSHAKE_FAILURE_ON_CLIENT_HELLO (external/boringssl/src/ssl/s3_clnt.c:764 0x7f6acbdf76:0x00000000)
+                                               at com.android.org.conscrypt.NativeCrypto.SSL_do_handshake(Native Method)
+                                               at com.android.org.conscrypt.OpenSSLSocketImpl.startHandshake(OpenSSLSocketImpl.java:357)
+                                               	... 16 more
+
+I have SSL2/3 disallowed on the IMAP server (Dovecot) and can't find why the connection fails.
+---
+Comment#12:
+@BlackVoid The error certainly suggests it's still trying to use SSLv3 (SSLV3_ALERT_HANDSHAKE_FAILURE). If you use https://www.htbridge.com/ssl/ you can see what your server is actually providing in terms of protocols.
+
+I don't think this is the same issue as @joshuao3 
+
+
+
+---
+Comment#13:
+No debug log for the original issue. @joshuao3 feel free to attach a debug log via GitHub's website if you are still seeing problems (everyone else, open a new issue if you have problems).
+---

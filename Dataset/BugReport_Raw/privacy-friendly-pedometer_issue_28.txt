@@ -1,0 +1,13 @@
+Bug Report Title:
+Android 4.4.2/ Samsung GT-N7100: Crashes on start.
+
+Bug Report Issue:
+Android 4.4.2/ Samsung GT-N7100: This app gives a notice: 0 of n steps walked and crashes on start, every time. Have rebooted device and no change.
+
+Comments:
+Comment#1:
+Thanks for the comment. Could you tell me wish version of the APP.
+---
+Comment#2:
+Fixed with https://github.com/SecUSo/privacy-friendly-pedometer/commit/252193f949651a4c6a5ead99bb219e86d51a16db
+---

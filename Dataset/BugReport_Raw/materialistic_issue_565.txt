@@ -1,0 +1,18 @@
+Bug Report Title:
+Images broken in readability mode
+
+Bug Report Issue:
+It has been a while since I saw images working in readability mode, used to work but got broken a few releases back. It does not work unless you open the article view, back to list, then back to readability view.
+
+Steps to reproduce:
+1. Open an article with an image in readability mode, images are broken
+2. Open the Article tab, everything works
+3. Go back to list view
+4. Open the same article again, in readability mode, images work now
+
+
+Comments:
+Comment#1:
+Seems to be happening due to cache control
+
+---

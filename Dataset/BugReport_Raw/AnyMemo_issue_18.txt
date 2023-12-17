@@ -1,0 +1,30 @@
+anymemo - issue #18
+DB default settings - Crash
+
+Comment #1
+Posted on Mar 9, 2012 by Happy Giraffe
+Looks like a regression. Need more investigation.
+
+Comment #2
+Posted on Mar 9, 2012 by Quick Camel
+By the way (I seen it before): It is strange to meet button 'Load default' on the page 'DB default settings'.
+
+Comment #3
+Posted on Mar 9, 2012 by Happy Giraffe
+Finally found out the issue. Modified.
+
+Comment #4
+Posted on Mar 9, 2012 by Happy Giraffe
+BTW. It is not strange to have load default in default settings. The effect is the same as discard button. This can save a lot of code.
+
+Comment #5
+Posted on Mar 10, 2012 by Quick Camel
+Comment deleted
+
+Comment #6
+Posted on Mar 10, 2012 by Quick Camel
+I confirm. No more crashes.
+
+Comment #7
+Posted on Mar 10, 2012 by Happy Giraffe
+(No comment was entered for this change.)

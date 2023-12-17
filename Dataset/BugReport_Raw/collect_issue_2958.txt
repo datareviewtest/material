@@ -1,0 +1,56 @@
+Bug Report Title:
+Accessing General settings form Admin settings does not display disabled submenus
+
+Bug Report Issue:
+#### Software and hardware versions 
+Collect v1.20.0, Android v9 build number 00WW_5_140, device used Nokia 8 TA-1004
+
+#### Problem description
+Accessing General settings from Admin settings does not display all General settings submenus if access to them has been revoked from normal users.
+
+When normal user access for all settings has been disabled, only the following submenu items are available in admin mode:
+1. Server Settings -> ODK Aggregate settings
+2. Form management -> Form filling -> Show guidance for questions
+
+#### Steps to reproduce the problem
+
+1. In Admin Settings -> User Settings, uncheck all check boxes
+2. Check available settings in Admin Settings -> General Settings -> Server
+3. Check available settings in Admin Settings -> General Settings -> User interface
+4. Check available settings in Admin Settings -> General Settings -> Form management
+5. Check available settings in Admin Settings -> General Settings -> User and device identity
+
+#### Expected behavior
+Accessing General settings via the Admin settings should allow access to all the settings in General settings submenus.
+
+#### Other information 
+Class `org.odk.collect.android.preferences.DisabledPreferencesRemover` does not seem to take into account whether the user is in admin mode or not. 
+
+Class `org.odk.collect.android.preferences.GeneralPreferencesFragment` handles admin mode correctly for main General settings categories.
+
+
+Comments:
+Comment#1:
+@opendatakit-bot claim
+---
+Comment#2:
+I'm working on a slightly diverged Collect fork where this issue is solved by handing  the boolean variable indicating admin access down to the submenu fragments. I've added the following lines [here](https://github.com/opendatakit/collect/blob/4d476b6f7a63f225f9cb0a6812f5501ac81fc6f5/collect_app/src/main/java/org/odk/collect/android/preferences/GeneralPreferencesFragment.java#L82):
+
+`Bundle bundle = new Bundle();`
+`bundle.putBoolean(INTENT_KEY_ADMIN_MODE, getArguments().getBoolean(INTENT_KEY_ADMIN_MODE));`
+`fragment.setArguments(bundle);`
+
+Without this change the submenu fragments are always called without arguments including admin mode by [this](https://github.com/opendatakit/collect/blob/4d476b6f7a63f225f9cb0a6812f5501ac81fc6f5/collect_app/src/main/java/org/odk/collect/android/preferences/GeneralPreferencesFragment.java#L87) method call.
+
+Please feel free to use this approach @ajwad-shaikh unless you've already found another solution.
+---
+Comment#3:
+I've found a very similar solution. I'm sending out a PR soon. 
+Thank you for taking out time to help @jsoppela 
+I'll be glad if you would review the PR too 😄 
+---
+Comment#4:
+@lognaturel @shobhitagarwal1612 This is an important issue raised by @jsoppela 
+Admins were unable to access the restricted settings to normal users. This creates a vulnerability in the workflow. Request you to put this up within the v1.21 milestone. 
+Would be glad if one of you could take time out to review this PR
+---

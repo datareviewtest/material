@@ -1,0 +1,79 @@
+Bug Report Title:
+Podcast Cover Disappears on Device Rotation
+
+Bug Report Issue:
+**App version:** 1.7.1 commit d26d21260 (from Google Play)
+
+**Android version**: 8.0.0
+
+**Device model**: Samsung Galaxy S8
+
+**Expected behaviour**:
+The cover and show notes should not disappear when the screen auto-rotates.
+![expected](https://user-images.githubusercontent.com/20678151/51264713-6c686000-19b7-11e9-8899-a1294c2a816d.png)
+
+**Current behaviour**:
+The cover and show notes of the playing podcast disappear when I rotate the phone and the screen orientation switches from Portrait to Landscape or vice versa. Only when I go back to the playlist and then reopen the detail page the information will reappear.
+![current](https://user-images.githubusercontent.com/20678151/51264733-7722f500-19b7-11e9-82cc-929d767d5d33.png)
+
+**Steps to reproduce**:
+
+1. Open the detail view of the currently playing podcast
+2. Rotate the phone (regardless of switching from Landscape to Portrait or from Portrait to Landscape)
+3. Notice that the podcast cover and the show notes are gone
+
+
+
+
+Comments:
+Comment#1:
+Same on Xperia X Performance (Android 8.0)
+---
+Comment#2:
+I'd suggest reopen the issue. 
+
+Based on the review done in PR #3006 so far, the fix is incomplete, and possibly introduces other bugs.
+---
+Comment#3:
+Can I work on this issue please? I'm contributing for the first time and I'd like to tackle this.
+---
+Comment#4:
+@m-Bilal 
+Nice to hear that you want to contribute. Please have a look at the comments and code in #3006 when starting to work on this. The issue was partially fixed but that pull request introduces new bugs.
+---
+Comment#5:
+@ByteHamster 
+Sure, thanks!
+---
+Comment#6:
+@ByteHamster 
+Seems like this issue has been fixed on the development branch. I am unable to recreate it on the debug version of the app on the develop branch. This issue however does still exist in the released version.
+
+I worked on the master branch's code and here is what I found:
+
+-    The issue does get fixed when ``` setupGUI() ``` is placed in ```onCreate()``` of ```MediaPlayerActivity```. However, it can also be fixed by having ```setupGUI()``` in ```onStart()```. The actual fix comes from setting ```setRetainInstance(true)``` in the Fragment class. This is because when the activity is destroyed and created again during rotation, the ```ViewPager``` does not return a new instance of the ```CoverFragment``` which results it in being ```null```. This also explains why the cover art reappears when you scroll to the last (episode list) page on the ```ViewPager```. This is a known issue in ```ViewPager``` and so far, none of the workarounds have worked for me on this app.
+
+-    When ```setupGUI()``` is placed in ```onCreate()``` of ```MediaPlayerActivity```, it does introduce a new bug. When you minimise the app and change the audio track from the notification and then reload the acitivity, sometimes, the cover does not update. This happens because ```onCreate()``` is not being called. I tried to fix this by putting ```setupGUI()``` in ```onStart()```, and, while ```onStart()``` is always called, seems that the system decides to not call ```setupGUI()```. This is weird, and I'm trying to understand why is this happening.
+
+For now though, should I make a pull request for a hotfix on the master branch's code, or work on the develop branch and fix the new bug that I discovererd? 
+---
+Comment#7:
+We are only working on the develop branch, there is no hotfix needed for master. It was partially fixed in #3006 but, as you said, there are some problems when moving setupGui to onCreate. #3006 mentions more problems (when the app was in background for a really long time, Android recreates the fragment even though setRetainInstance was called). 
+---
+Comment#8:
+@m-Bilal you can look at https://github.com/AntennaPod/AntennaPod/pull/3006#issuecomment-459992864 on my feedback on the issue. 
+
+---
+Comment#9:
+@orionlee 
+I've taken all my cues for debugging from #3006 (that comment mostly). I'll test the app more and let you guys know if I find anything else that's abnormal. For now, it's only the refreshing of the cover art that remains a problem.
+
+Also, I've got exams coming up this week, so I'll resume my work from Saturday.
+---
+Comment#10:
+@m-Bilal Okay - Good luck with your exams!
+---
+Comment#11:
+@ByteHamster @orionlee
+I am so sorry to be updating you guys this late, but I wasn't able to fix the bug for this long time. That single bug was causing a lot of unexpected behaviour (cover not changing when the track changed, and similar issues). I have fixed the bug now and the subsequent issues that resulted from it. You might find the fix to be a tad bit inefficient, but it was the only way to get it to work. Please review the pull request #3072 and let me know if there is anything that is to be changed.
+---

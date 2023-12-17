@@ -1,0 +1,106 @@
+Bug Report Title:
+Demo doesn't show tiles when sd card is removed and using Application Private Storage
+
+Bug Report Issue:
+## Issue Type
+[ ] Bug
+
+## Description and/or steps/code to reproduce the problem
+When I Pick the base location and cache location in the Demo Settings and pick Application Private Storage, the tiles load correctly if the device has an sd card available, when the sd card is removed even if the cache is set as an internal app path the tiles won't load and show as blank. Is an sd card necessary to load the tiles even when the base location and cache location don't use external storage?
+
+Similarly, using these config settings in the app we're building before creating a map and setting a tile source, yields the same results, the base path and the cache path are set to the the internal app storage, and the tiles load correctly when an sd card is mounted, and they're blank when it's removed.
+
+ Configuration.getInstance().setOsmdroidBasePath(..
+           Configuration.getInstance().setOsmdroidTileCache(...
+            Configuration.getInstance().setTileFileSystemCacheMaxBytes(...
+            Configuration.getInstance().setUserAgentValue(...
+
+### Version of osmdroid the issue relates to:
+
+6.0.1
+
+
+
+Comments:
+Comment#1:
+i think there's a check in the code for "is sdcard available". Perhaps that isn't needed any longer. Thanks for the report
+---
+Comment#2:
+@sergeyfolds Maybe not 100% related but who knows: trying to reproduce this issue, I removed my SD card.
+Then in the demo, went to Settings, Pick Cache Location, and then ANR!
+
+The problem comes from `PreferenceActivity.showPickCacheFromList` (edited):
+````java
+File[] externalFilesDirs = context.getExternalFilesDirs(null);
+if (externalFilesDirs != null) {
+	for (int i = 0; i < externalFilesDirs.length; i++) {
+		File mount = externalFilesDirs[i];
+		if (mount.exists() && mount.isDirectory()) {
+````
+Because in `Context.getExternalFilesDirs`
+> Returned paths may be `null` if a storage device is unavailable.
+
+The fix is obviously something like `if (mount != null && mount.exists() && mount.isDirectory())`
+
+I fixed that way, managed to change the "Cache Location" to "Application Private Storage" (`/data/data/...`) and the tiles are correctly displayed.
+Same fix is to be applied in `StoragePreferenceFragment`.
+
+I'm not sure how relevant it can be for you, but it's definitely a case of "no sd-card => unexpected behavior".
+---
+Comment#3:
+@sergeyfolds I couldn't reproduce your issue. Disclaimer: I have to switch off my smartphone in order to remove the SD card. Do you also have to?
+---
+Comment#4:
+Tested today on newest 6.0.2-SNAPSHOT, on device without SD card. Tiles still aren't displayed when base/tile cache path is set to internal cache directory, external cache directory or files directory. Everything is fine when the paths are not changed. On device with SD card everything works like a charm, regardless of the chosen directory.
+
+Device without SD card: Samsung Galaxy S7, Android 7.0
+Device with SD card: Motorola Moto G5, Android 7.0
+
+Let me know if you need any additional information.
+---
+Comment#5:
+@spyhunter99 You were right, there's some historical "if there's no sd card do nothing" test performed through `MapTileFileStorageProviderBase.isSdCardAvailable`.
+I'll have a look at it tomorrow.
+---
+Comment#6:
+Just PR'ed in #1031.
+@sergeyfolds @ILikeYourHat That should fix this issue. Could you test and tell me if it's OK?
+---
+Comment#7:
+@monsieurtanuki Is this fix currently available in 6.0.2-SNAPSHOT? If yes, then tiles still aren't displayed. I've downloaded the latest aar from sonatype to be sure that this isn't a cache issue
+---
+Comment#8:
+@spyhunter99 How long does it take between the code merge and the impact on the aar snapshot? Is that automatic?
+---
+Comment#9:
+it isn't automatic. i'll push a build tonight
+---
+Comment#10:
+it isn't automatic. i'll push a build tonight
+---
+Comment#11:
+@spyhunter99 Thanks
+---
+Comment#12:
+@monsieurtanuki Still not working, there must be something else that prevent the tiles for being displayed.
+
+EDIT: Interesting fact. This works:
+`Configuration.getInstance().setOsmdroidBasePath(new File(StorageUtils.getStorage().getAbsolutePath(), "osmdroid"));`
+
+This does not:
+`Configuration.getInstance().setOsmdroidBasePath(new File(StorageUtils.getStorage().getAbsolutePath(), "lol"));`
+
+This neither:
+`Configuration.getInstance().setOsmdroidBasePath(new File(getCacheDir().getAbsolutePath(), "osmdroid"));`
+
+So I assume that the base path must be hardcoded somewhere
+---
+Comment#13:
+@monsieurtanuki Any updates on this issue?
+---
+Comment#14:
+@ILikeYourHat I just managed to have tiles displayed while stored in `lol/tiles` by setting not only OsmdroidBasePath but also OsmdroidTileCache (using the demo / Settings).
+---
+Comment#15:
+Sorry for waiting so long. It's working now as expected, thank you :1st_place_medal: 
+---

@@ -1,0 +1,57 @@
+Bug Report Title:
+Autosync Does Not Activate After Regaining Connectivity
+
+Bug Report Issue:
+# Steps to Reproduce Bug
+1. Turn off connectivity
+2. Make an ob
+3. Turn connectivity back on
+4. Obs remain in Waiting for Upload... state and pull to refresh does not activate a sync.
+## Expected Behavior
+
+Obs should sync automatically.
+
+
+Comments:
+Comment#1:
+In build 151 I can still follow Joelle's steps. The obs will upload if I leave the obs list activity (e.g. go to Settings) and then come back, but if you're in airplane mode, make an obs, view your list, leave airplane mode, and view the list, upload doesn't start and pull-to-refresh doesn't trigger upload.
+
+---
+Comment#2:
+Pull-to-refresh shouldn't trigger upload, just download.
+But the sync trigger does take a few seconds sometimes - the way it was implemented is by using a broadcast receiver for network connection settings (i.e. the app is notified when the Internet is back on). So you're not seeing it being triggered, even if you wait a little while after turning airplane mode off?
+
+---
+Comment#3:
+I just tried it again and waited 40 seconds and the upload didn't trigger. I have to leave the activity and then return to it for the upload to start. Entering / leaving airplane mode from the top sliding menu doesn't seem to qualify.
+
+---
+Comment#4:
+Weird, should have worked (tested it out on my phone) - will look again and fix
+
+---
+Comment#5:
+@kueda - is it still not working for you as of build 153? If not, is the following use case not working for you:
+(Auto sync is on) -> Add an observation with some photos -> save -> turn on airplane mode to stop sync -> turn off airplane mode -> sync starts after a few seconds
+
+---
+Comment#6:
+In 153, Joelle's use case works for me now, but the additional one you described (entering airplane mode before photos upload) does not.
+
+---
+Comment#7:
+Joelle's case works for me as well. This case does not: (Auto sync is on) -> Add an observation with some photos -> save -> turn on airplane mode to stop sync -> turn off airplane mode -> sync starts after a few seconds
+
+---
+Comment#8:
+I also noticed if I make an ob in manual sync, don't upload it and change to autosync, the ob stays in the Waiting to Upload... state and does not upload. I realize this is kinda of an edge case, but I just thought I'd bring it up. 
+
+---
+Comment#9:
+@joellebel - after you switch auto-sync to on, and you get back to observations list - it doesn't upload it within a few seconds? Weird, I can't seem to recreate that...
+
+---
+Comment#10:
+Never mind - found the bug that was causing this
+
+---

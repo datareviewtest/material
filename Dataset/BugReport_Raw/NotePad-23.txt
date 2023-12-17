@@ -1,0 +1,8 @@
+banderlabs - issue #23
+Long tap on note > send note > crash
+
+
+Posted on Nov 26, 2013 by Helpful Bird
+The summary pretty much tell you how to reproduce the issue.
+
+Using GT-I8160 (Ace 2) with unofficial CyanogenMod 10.1, if it helps.

@@ -1,0 +1,72 @@
+Bug Report Title:
+App Crashes when clicking Scan Tag
+
+Bug Report Issue:
+Galaxy S5, Android 5.0
+
+When I click scan tag the app quits responding and crashes.
+I have tried this version and also azsde's forked version and I have the same issue.
+
+The error I am getting is here: http://pastebin.com/VL4LEzqL
+
+Comments:
+Comment#1:
+Is this log corresponding to my version ? I can't reproduce the issue
+---
+Comment#2:
+Same on Galaxy s4. Does it require root? 
+Edit: Nevermind, I fixed it commenting out all the ImageView parts inthe xml and in the code. I suggest you replace it with a basic shape since it causes issues to everybody apparently.
+---
+Comment#3:
+I got it to work by changing the shapes like @Kidel mentioned
+
+---
+Comment#4:
+Where can I find the xml file I need to comment out I have the same issue. 
+---
+Comment#5:
+I fixed it in my fork and @azsde 's fork
+---
+Comment#6:
+I can't compile it, and I thought you said you weren't allowed to distribute the .apk ?
+
+If that's the case then the issue needs to be sorted on the official master ?
+
+I hope the creator makes this fix soon. 
+---
+Comment#7:
+http://www.filedropper.com/tagmo20170314
+not by me.
+---
+Comment#8:
+Superb, no longer crashes now. 
+---
+Comment#9:
+NB: this doesn't seem to be updated with @masterchan-777 's commits (Wolf Link editing)
+---
+Comment#10:
+
+Just wondering, what the wolf link editor is ( if its to increase items/ treasure i would like to do it) is there a link to more info?
+
+I saw your message to somone else and going to have a go at making my own .apk from the source so i have the edit wolf function too.
+---
+Comment#11:
+As far as I know by default the Wolf Link Amiibo gives you an in game wolf with 3 hearts. If you also have Zelda TP on Wii U however you can write your save to the amiibo in order to powerup the wolf. 
+However you can already find the .bin with everything maxed out. Just search  Wolf Link (20 Hearts, Cave of Shadows Beaten, B40), the bin should be around the first results. 
+---
+Comment#12:
+Thank you for that info, i also compiled the latest build, was easier than i had expected.
+---
+Comment#13:
+Easy as clicking on a button :D 
+---
+Comment#14:
+Hmm not quite, 5gb download, then update to latest version, then install all the repos required all to compile  a 1.3mb apk :-/
+
+But it's done lol. 
+---
+Comment#15:
+Apperantly the issue is solved, right?
+
+I am closing this issue now, if any new problems occur just open a new issue thread.
+---

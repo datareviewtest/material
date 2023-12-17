@@ -1,0 +1,71 @@
+Bug Report Title:
+User image is not uploading when you clicked image from device camera and clicked image quality is also very poor.
+
+Bug Report Issue:
+
+#### Expected behavior
+Memento Calendar is a modern namedays app for Android. In this app you can see upcoming events like birthdays etc. of your contacts or you can also add a new event for your contact from the app in 'Add a new event section'. While adding a new event for your contacts you can also set profile pictures to your contacts from your gallery or from your camera. When you select camera to add a profile picture, your device camera will open and you need to click a new image. After clicking image the image will upload and show in contact image area (at place of blue area). 
+![WhatsApp Image 2018-02-12 at 17.06.42.jpeg](https://res.cloudinary.com/hpiynhbhq/image/upload/v1518436973/rs7dcgqw2mc46tsnlynh.jpg)
+
+
+#### Actual behavior
+Today i installed Memento Namedays android app and after installing i came to main screen of where i can see list of my added events or i can add a new event on clicking the "+" button. I clicked on the "+" button to add a new event. After clicking on "+", a new page opened where i can create a new event with user image, contact name and event dates. I clicked on user image(the blue area with white user icon) to add contact image, select camera, click a new image and select ok. I came back to add event screen but the image i clicked from my camera is not uploaded at place of user image placeholder.
+![WhatsApp Image 2018-02-12 at 17.06.42.jpeg](https://res.cloudinary.com/hpiynhbhq/image/upload/v1518435826/ctfpuh168d3gwu7meptt.jpg)
+
+
+#### How to reproduce
+To reproduce the bug follow the following steps -
+- Open app and click on "+" button to add a new event.
+- Now click on camera icon to upload a picture and select camera to click a picture.
+- Click image from device camera and click ok.
+
+Now you see that your clicked image is not set as contact profile image.
+
+<pre>
+<code>
+* Device:  Samsung J7 Prime
+* Operating system: Android 7.0 Nougatt
+* App Version: v11.2
+</code>
+</pre>
+
+#### Recording Of The Bug
+https://youtu.be/VNzcpiORv1E
+    
+
+<br /><hr/><em>Posted on <a href="https://utopian.io/utopian-io/@iamankit/user-image-is-not-uploading-when-you-clicked-image-from-device-camera-and-clicked-image-quality-is-also-very-poor">Utopian.io -  Rewarding Open Source Contributors</a></em><hr/>
+
+Comments:
+Comment#1:
+Thanks for opening this issue @iamank1t.
+
+I can confirm that the issue exists, but I haven't had the time yet. I'll pick it up as soon as I'm done with the version I am working on, or hopefully someone else might pick it up 😄
+---
+Comment#2:
+Sound cool sir!
+
+On 18 Feb 2018 19:43, "Alex Styl" <notifications@github.com> wrote:
+
+> Thanks for opening this issue @iamank1t <https://github.com/iamank1t>.
+>
+> I can confirm that the issue exists, but I haven't had the time yet. I'll
+> pick it up as soon as I'm done with the version I am working on, or
+> hopefully someone else might pick it up 😄
+>
+> —
+> You are receiving this because you were mentioned.
+> Reply to this email directly, view it on GitHub
+> <https://github.com/alexstyl/Memento-Calendar/issues/168#issuecomment-366518965>,
+> or mute the thread
+> <https://github.com/notifications/unsubscribe-auth/AgWf4UltKC22WNJOJVfFOBrNsxNXd6SGks5tWC_wgaJpZM4SF7d7>
+> .
+>
+
+---
+Comment#3:
+Sorry this took for ever, but a fix is coming in #188 
+
+I'm closing this and hopefully the next update from the Playstore won't have the issue :)
+
+![img](https://user-images.githubusercontent.com/1665273/41194583-4b9e150c-6c26-11e8-8e85-7c2b87167254.gif)
+---

@@ -1,0 +1,11 @@
+https://github.com/hidroh/materialistic/issues/1067
+https://github.com/netmackan/ATimeTracker/issues/138
+https://github.com/vijai1996/screenrecorder/issues/32
+https://github.com/mikepenz/FastAdapter/issues/113
+https://github.com/CellularPrivacy/Android-IMSI-Catcher-Detector/issues/816
+https://github.com/JavaCafe01/PdfViewer/issues/33
+https://github.com/netmackan/ATimeTracker/issues/10
+https://github.com/getodk/collect/issues/1796
+https://github.com/codinguser/gnucash-android/issues/663
+https://github.com/kebernet/shortyz/issues/135
+https://github.com/alexstyl/Memento-Calendar/issues/169

@@ -1,0 +1,30 @@
+Bug Report Title:
+Modal dialogs disappear on device rotation
+
+Bug Report Issue:
+When I perform these sequences of events, the dialog on screen disappears:
+
+Sequence 1:
+1. Click on "..." (More Options)
+2. Click on Preferences
+3. Click on Profiles
+4. Click on Manage Profiles
+5. Click on Add Profile
+6. Orientation Change
+
+Sequence 2:
+1. Click on "..." (More Options)
+2. Click on Preferences
+3. Click on Profiles
+4. Click on Manage Profiles
+5. Long Click on profile item in list
+6. Orientation Change
+
+Sequence 3:
+1. Click on More Options
+2. Click on Show Rules
+3. Click on More Options
+4. Click on Flush Rules
+5. Orientation change
+
+Comments:

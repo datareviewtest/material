@@ -1,0 +1,13 @@
+Bug Report Title:
+Crash after deleting a program that is in progress
+
+Bug Report Issue:
+If you start a program, then go to delete it without first stopping it, then the next time you go back into "Workout" the application will crash. It will be stuck in a crash loop.
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Create a test program with any exercise.
+2. Go to Workout -> Program, select your new program and click "Start Program".
+3. Go to Program list, select your test program and delete it.
+4. Go back to Workout. The application will crash.
+

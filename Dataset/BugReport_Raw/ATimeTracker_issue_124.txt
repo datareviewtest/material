@@ -1,0 +1,75 @@
+Bug Report Title:
+New "edit times" screen harder to use than old screen
+
+Bug Report Issue:
+**Describe the bug**
+The new edit times screen which appears looks nice, but using it to actually edit times is a much greater pain than the irritants that were present on the old screen (the version with the round 'clock' time selector wheels).
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Long press a task with time values
+2. Scroll the popup menu (if necessary) and select "show times"
+3. Tap a time range
+
+**Expected behavior**
+An easy and fast UI to use to make changes to start/end time points for an event.
+
+**Actual behavior**
+The UI for selecting a time value has changed from a circular clock face to a side-by-side pair of vertically scrolling linear lists of time values.  This layout is significantly more time consuming to use to select a specific time value because of the amount of 'scroll' through the lengthy linear lists that is necessary (24 entries for the hours, 60 entries for minutes).  If one has, say, a value of 09:45 and needs to run back to 09:15, one has to scroll the minutes list across 30 numerals to get to the right value.
+
+With the old clock layout, selecting an hours value and a minutes value was a direct access operation (sometimes with a little tweaking when the ui picked 16 instead of 15).
+
+But the two UI's are like the difference between an O(1) lookup vs. an O(n) lookup algorithm.  The old clock face was O(1) access time.  The new UI is O(n) access time.
+
+Please either bring back the old UI, or offer a setup option to switch to the old UI.  It was way superior from a time taken to make a change perspective than the new UI.
+
+**Smartphone (please complete the following information):**
+ - Phone: Moto E4
+ - OS: Android 7.1.1
+
+
+
+Comments:
+Comment#1:
+I agree this is worse. It seems the default date and time pickers has changed in later API level but I am thinking of looking into if it is possible to somehow specify the old layout is wanted.
+---
+Comment#2:
+Version 0.51.2 with this fix should soon be available in the Google Play beta channel:
+https://play.google.com/apps/testing/com.markuspage.android.atimetracker
+
+If possible let me know if this fixes the issue.
+---
+Comment#3:
+Well, I installed via the F-Droid store, so I don't want to screw up my existing data by overwriting with the play store copy.  When it appears in F-Droid then I can update and let you know.
+---
+Comment#4:
+Ok, will close for now but please re-open if the issue was not fixed.
+---
+Comment#5:
+Oh no, the new time edit screens is gone again, I liked it much better.. reasons are two:
+1. With the old (now back again) screen it is too easy to accidentally change hours by tapping near the "clock" while scrolling (e.g. to go down to the end time); clock values should change only if the clock is tapped, not anywhere near.
+2. With the new (now gone again) screen editing individual times precisely (without a "whoops it's 16 instead of 15 now fiddle with a millimeter to get that right") was easier.
+
+If complaining about having to scroll the number wheels you didn't realize one can long tap the number to get a numeric keypad and then enter numbers.
+---
+Comment#6:
+> If complaining about having to scroll the number wheels you didn't realize one can long tap the number to get a numeric keypad and then enter numbers.
+
+No, I did not.  I just tried it, and yes, there is a /very well hidden/ [1] text input field present overlaying the scroll areas.  If I had discovered that before filing this issue, I'd not have filed the issue.  The UI does not in any way suggest that there is an input field present. [1]
+
+[1] |sarcasm|Thanks Google, for hiding it so well.|sarcasm|
+---
+Comment#7:
+I agree with @erAck. I have to be very careful and swipe from the very side not to touch near the clocks.
+
+**Can clocks be made not sensitive to swipes (don't change unless finger is down then up without sliding)?**
+
+---
+
+This is one of the best time pickers I have personally experienced:
+
+[Clock+](https://github.com/philliphsu/ClockPlus): Screens:[1](https://user-images.githubusercontent.com/53501035/62179216-0c7e4900-b34c-11e9-9531-5af35009801e.jpg) [2](https://user-images.githubusercontent.com/53501035/62179217-0d16df80-b34c-11e9-9d55-c0f25d690484.jpg)
+
+And it has (+/-) signs to move inside the 5-minute increments (for example, choose 50 then tap minus twice for 48. no difficult fine tuning.
+
+---

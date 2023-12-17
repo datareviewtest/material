@@ -1,0 +1,20 @@
+Bug Report Title:
+Dark mode not correctly setting theme colors in card area of Reviewer
+
+Bug Report Issue:
+###### Reproduction Steps
+
+Switch on Night Mode. 
+It doesn't matter if one sets the Theme to "Dark" or "Black". 
+Card background is always 100% black.
+
+Pure black backgrounds [should be avoided](http://uxmovement.com/content/why-you-should-never-use-pure-black-for-text-or-backgrounds/) from an UX perspective. It increases eyestrain and decreases legibility. 
+
+I suggest that the card background should be toned down a bit. 
+
+Comments:
+Comment#1:
+Ah, I see what you mean. The "dark" (vs "Black") setting doesn't affect card background while it does affect the other areas. 
+
+I just poked around in the area and I think #5128 fixes it assuming it passes review
+---

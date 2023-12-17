@@ -1,0 +1,38 @@
+Bug Report Title:
+App stops while swiping through articles
+
+Bug Report Issue:
+## Description of the issue
+
+The app crashes when you are on an article page and swipe right, to go back to the previous news article, and then swipe left, to get back to the initial article. The screen gets black and an error message appears: "Unfortunately, OCReader has stopped." Then the app starts again.
+
+As long as you only ever swipe to the next articles, the app works as expected.
+
+## Expected behavior
+
+The app doesn't crash, no matter in which direction you swipe and in which succession.
+
+## Steps to reproduce
+
+Go to an article that has a predecessor, swipe right and then left.
+
+## Your Environment
+
+- OCReader version: 0.29
+- Nextcloud news version: 10.1.0
+- Android version: 4.4.4 and 4.2.2
+
+Comments:
+Comment#1:
+Sorry for the late reply, I'm still waiting for F-Droid to build version 0.30, which allows to send a bug report in case of a crash with more information, because I can't reproduce this here.
+---
+Comment#2:
+Unfortunately, the problem still exists. As long as you go only forward or only back, the app works as expected. But when  you change the direction of the swipes, the app crashes.
+
+- OCReader version: 0.33
+- Nextcloud news version: 10.2.0
+- Android version: 4.4.4 and 4.2.2
+---
+Comment#3:
+The fix unfortunately hasn't made it into 0.33, hope I get around to releasing a new version soon
+---

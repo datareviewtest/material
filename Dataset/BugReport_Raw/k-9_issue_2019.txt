@@ -1,0 +1,44 @@
+Bug Report Title:
+search crash
+
+Bug Report Issue:
+Crash application when search.
+
+
+### Environment
+K-9 Mail version:
+5.202
+Android version:
+5.11
+Account type (IMAP, POP3, WebDAV/Exchange):
+imap
+
+Comments:
+Comment#1:
+If you reported the crash via the reporter (which should have appeared if you installed the app via Google Play) then we should get a proper crash report and we'll get to it.
+
+If not then we need a debug log &/or much more detailed reproduction steps - it doesn't seem to be reproducible just by doing a simple search.
+---
+Comment#2:
+Ok. I try ti report Just now.
+Thank you.
+
+Il 08 gennaio 2017 23:07:49 CET, Philip <notifications@github.com> ha scritto:
+>If you reported the crash via the reporter (which should have appeared
+>if you installed the app via Google Play) then we should get a proper
+>crash report and we'll get to it.
+>
+>If not then we need a debug log / more detailed reproduction steps - it
+>doesn't seem to be reproducible just by doing a simple search.
+>
+>-- 
+>You are receiving this because you authored the thread.
+>Reply to this email directly or view it on GitHub:
+>https://github.com/k9mail/k-9/issues/2019#issuecomment-271183429
+
+-- 
+Inviato dal mio dispositivo Android con K-9 Mail. Perdonate la brevità.
+---
+Comment#3:
+There's nothing more we can do with this report. If there's a separate Google Play report with a new problem @cketti can raise it. If it's just #1240 then it's an issue with the Samsung Galaxy Tab 3 (and possibly other devices) and we'll fix it under that issue.
+---

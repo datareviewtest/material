@@ -1,0 +1,78 @@
+Bug Report Title:
+App doesnot ask for permission when multiple pics are shared
+
+Bug Report Issue:
+**Summary:** 
+
+App doesnot ask for storage permission when multiple pics are shared through gallery.
+
+
+**Steps to reproduce:** 
+1.Select pics you want to share through any gallery.
+2.Click on the share button.
+3.Select the commons app from the recommended app list.
+4.The dialogue box which should appear asking for storage permission doesnot appear.
+
+
+
+**Device and Android version:** 
+Motorola G(4) (android 7.0,API 24).
+
+ **Commons app version:** 
+2.7.2-debug-master~d7b956e5
+
+**Screen-shots:** 
+![screenshot_20180709-005352](https://user-images.githubusercontent.com/26187363/42423189-007dcd1a-8314-11e8-9cec-461326a71aba.png)
+![screenshot_20180709-005413](https://user-images.githubusercontent.com/26187363/42423190-02782462-8314-11e8-8eb4-9a91cfe56164.png)
+![screenshot_20180709-005418](https://user-images.githubusercontent.com/26187363/42423191-047c470c-8314-11e8-9df9-b8110b69374c.png)
+
+
+
+**Would you like to work on the issue?**
+Yes i would like to work on this issue.
+
+
+
+
+Comments:
+Comment#1:
+Please feel free to work on this, @parth96 . :)
+---
+Comment#2:
+@misaochan Can i work on this?
+---
+Comment#3:
+@parth96 Are you still interested in working on this?
+---
+Comment#4:
+Sorry,I am engaged in something else won't be able to work on it.
+---
+Comment#5:
+It's yours @VaishSiddharth . :)
+---
+Comment#6:
+@misaochan I plan to ask for user permission and then the activity will finish. When the user will again start the upload from gallery it will work as expected and the upload will begin. Is this ok?
+---
+Comment#7:
+Can you not proceed with the upload after permission is granted?
+---
+Comment#8:
+@misaochan Ok i will try to do that but i am not sure about how to do it.
+---
+Comment#9:
+Is this issue still open, although I could see the dialog to ask for permissions when sharing multiple images from gallery, the negative cases where the user chooses deny is not handled, we can may be show him a dialog to let him know why we need the permission, and then prompt him again. Also if I choose deny (never ask again), I could see that that now sharing through gallery shows nothing (actually the activity's  finish()) is called, which appears to the user as if the app has crashed. My suggestion was to handle negative cases over here and maybe show appropriate dialogs wherever required so that the user might understand and actually give us the permissions.
+---
+Comment#10:
+@ashishkumar468 Sounds like a good plan, and indeed this would work well with #1773 .
+
+@VaishSiddharth Have you made any progress on this just yet? If not, would you mind us assigning this task to AshishKumar? As I notice that you currently have a few tasks that you are already working on. :)
+---
+Comment#11:
+Yes, waiting on @VaishSiddharth  for his update . 
+---
+Comment#12:
+@ashishkumar468 Yes you can work on this. :)
+---
+Comment#13:
+Thanks @VaishSiddharth, taking this up
+---

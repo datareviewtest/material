@@ -1,0 +1,16 @@
+Bug Report Title:
+Whitelist/Blacklist Filters are not clear whether they use Keywords or Phone Numbers
+
+Bug Report Issue:
+Clicking the _Add Phone Numbers_ button for a Blacklist:
+
+![screenshot_2016-04-06-14-41-37](https://cloud.githubusercontent.com/assets/191496/14316878/b76075de-fc05-11e5-8124-03e572e18f82.png)
+
+Triggers a dialog with a single input field which has a label - _Add Keyword_ and a hint - _Add a phone number_.
+
+![screenshot_2016-04-06-14-37-53](https://cloud.githubusercontent.com/assets/191496/14316857/9b7b556e-fc05-11e5-89a9-bbf97d2c4f3b.png)
+
+It's unclear what should be entered, although the on-screen keyboard defaults to text.
+
+
+Comments:

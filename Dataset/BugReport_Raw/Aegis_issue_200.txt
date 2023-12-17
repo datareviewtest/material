@@ -1,0 +1,38 @@
+Bug Report Title:
+Autolock doesn't work anymore
+
+Bug Report Issue:
+<!-- Please read the [bug reports section of the contribution
+guidelines](/CONTRIBUTING.md#bug-reports) before submitting an issue. -->
+
+###### Info
+
+* __Version__: 1.0.1
+* __Source__: Google Play
+* __Vault encrypted:__ Yes (no fingerprint unlock)
+* __Android version and ROM:__ 7.0
+
+###### Steps to reproduce
+
+1) unlock the vault
+2) push home button (not back button)
+3) launch Aegis again
+
+###### What do you expect to happen?
+
+It should auto-lock (it used to work perfectly with previous version 0.4.3)
+
+###### What happens instead?
+
+Shows a message "Vault is unlocked. Tap here to lock." but doesn't lock the vault automatically.
+
+I'm not sure if it's a bug but I preferred the old version where the vault closed automatically. If Aegis is not in the foreground, I want it to lock itself.
+
+Comments:
+Comment#1:
+Hi Jonas, thanks for bug report! However, auto-lock never worked the way you are describing. I just tested this on 0.4.3 and the vault only locks on a back button press (while in the app) or when locking the device (ACTION_SCREEN_OFF). 
+
+It's not possible to correctly detect the home button presses as far as we know. Instead of using the home button you can double tap the back button to close and lock the vault.
+
+I'm closing this issue since it's not a bug (nor really intended) but feel free to leave any questions or comments in this thread.
+---
