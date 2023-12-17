@@ -49,7 +49,7 @@ Note that Bug report links are placed in several .txt files, such as 'source.txt
 | FirefoxLite#5085  |  ❌      | ✅      | ✅     | ✅   |
 | FlashCards#13     |  ✅      | ✅      | ✅     | ✅   |
 | K9#3255           |  ✅      | ✅      | ✅     | ✅   |
-| Kiwix#990★        |  ❌      | ✅      | ✅     | ✅   |
+| Kiwix#990        |  ❌      | ✅      | ✅     | ✅   |
 | LibreNews#22      |  ✅      | ✅      | ✅     | ✅   |
 | LibreNews#23      |  ❌      | ✅      | ✅     | ✅   |
 | LibreNews#27      |  ✅      | ✅      | ❌     | ✅   |
