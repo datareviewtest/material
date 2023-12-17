@@ -43,7 +43,7 @@ For example: **name-id.apk, name-id.txt, name-issues-id.apk**
 | FirefoxLite#5085  |  ❌      | ✅      | ✅     | ✅   |
 | FlashCards#13     |  ✅      | ✅      | ✅     | ✅   |
 | K9#3255           |  ✅      | ✅      | ✅     | ✅   |
-| Kiwix#990★        |  ❌      | ✅      | ✅     | ✅   |
+| Kiwix#990        |  ❌      | ✅      | ✅     | ✅   |
 | LibreNews#22      |  ✅      | ✅      | ✅     | ✅   |
 | LibreNews#23      |  ❌      | ✅      | ✅     | ✅   |
 | LibreNews#27      |  ✅      | ✅      | ❌     | ✅   |
